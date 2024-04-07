@@ -70,9 +70,9 @@ export default function TextForm(props) {   //using TextFrom(props).
     </div>
     <div className="container my-2" style={{color:props.mode==='dark'?'white':'#042743'}} > {/*EK or container add karne ke liye use kiya h*/}
         <h2>Your text summary</h2>
-        <p>{text.split(' ').length} words {text.length}</p>  {/*iska use se ham words or character ko count kar sakege*/}
-        <p>3432 words and 453243 charecters</p> 
-        <p>{0.008*text.split(' ').length}Minutes read</p>  {/*iska use hamne text ko read karne me kitne minutes lagenge uske liye kiya h OR "0.008" jo h wo Approx 1 Minutes=125 Words h means 1words ko read karne me 1/125=0.008 */}
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words {text.length}</p>  {/*iska use se ham words or character ko count kar sakege*/}
+        {/* <p>3432 words and 453243 charecters</p>  */}
+        <p>{0.008*text.split(' ').filter((element)=>{return element.length!==0}).length} Minutes read</p>  {/*iska use hamne text ko read karne me kitne minutes lagenge uske liye kiya h OR "0.008" jo h wo Approx 1 Minutes=125 Words h means 1words ko read karne me 1/125=0.008 */}
         <h3>Preview</h3> 
         <p>{text.length>0?text:"Enter Something in the textbox above to Preview it here"}</p>  
         {/* yaha hamne text.length>0?text:"Enter Something in the textbox above to Preview it here ka used jab "TextBox" me "text" likha ho toh wo show ho warna "Enter Something in the textbox above to Preview it here" show ho iske liye kiya h */}
